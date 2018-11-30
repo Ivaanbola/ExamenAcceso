@@ -28,8 +28,11 @@
 			<td><%=p.getPrecio()%></td>
 		</tr>
 	</table>
+	<a href="formularioBuscar.jsp">Volver a buscar</a>
+	<br>
+	<a href="mostrarTodos.jsp">Mostrar todos los productos</a>
 	<%
-		}
+		} else {
 	%>
 
 
@@ -39,5 +42,10 @@
 			name="id"> <input type="hidden" name="opcion" value="3">
 		<input type="submit" value="BUSCAR">
 	</form>
+
+
+	<%
+		}
+	%>
 </body>
 </html>

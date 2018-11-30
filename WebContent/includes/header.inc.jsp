@@ -1,7 +1,7 @@
 
 
 <%@include file="proteccion.jsp"%>
-
-<header>
-
-</header>
+<%
+	out.print(" <a href='GProducto?opcion=5'>Cerrar sesion</a>");
+%>
+<header> </header>

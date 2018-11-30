@@ -32,7 +32,12 @@ public class Usuarios {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-
+/**
+ * busca un usuario en la base de datos
+ * @param nombre
+ * @param contraseña
+ * @return
+ */
 	public static boolean buscar(String nombre, String contraseña) {
 		Usuarios e = null;
 		try {

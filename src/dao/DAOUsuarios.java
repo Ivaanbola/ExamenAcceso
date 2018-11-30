@@ -23,6 +23,14 @@ public class DAOUsuarios {
 		return instance;
 	}
 
+	/**
+	 * Busca si el usuario que le pasas, es el que se encuentra en mi base de datos
+	 * 
+	 * @param nombre
+	 * @param contrasena
+	 * @return
+	 * @throws SQLException
+	 */
 	public Usuarios buscar(String nombre, String contrasena) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM usuarios WHERE nombre = ? and contrasena = ?");
 		ps.setString(1, nombre);

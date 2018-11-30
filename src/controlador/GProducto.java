@@ -51,6 +51,14 @@ public class GProducto extends HttpServlet {
 		inicio(request, response);
 	}
 
+	/**
+	 * Mi metodo inicio, recoge el opcion del formulario y hace un case
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	protected void inicio(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -79,6 +87,14 @@ public class GProducto extends HttpServlet {
 
 	}
 
+	/**
+	 * Metodo que cierra la sesion
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	private void cerrarLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession();
@@ -91,6 +107,14 @@ public class GProducto extends HttpServlet {
 
 	}
 
+	/**
+	 * Metodo que comprueba si el usuario esta logeado, o comprueba que esta
+	 * logueado
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
 	private void peticionLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		HttpSession sesion = request.getSession();
@@ -124,6 +148,15 @@ public class GProducto extends HttpServlet {
 
 	}
 
+	/**
+	 * inserta un nuevo producto si el id es igual de vacio actualiza un nuevo
+	 * producto si el id es distinto de vacio
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	private void nuevoProducto(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -132,6 +165,7 @@ public class GProducto extends HttpServlet {
 
 		Producto p = new Producto(descripcion, precio);
 		if (request.getParameter("id") != "") {
+			System.out.println("El ide es" + request.getParameter("id"));
 			int id = Integer.parseInt(request.getParameter("id"));
 			p.setId(id);
 			p.actualizar();
@@ -142,6 +176,14 @@ public class GProducto extends HttpServlet {
 
 	}
 
+	/**
+	 * mi metodo editar que me lleva al formulario para luego rellenar los datos
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id;
 
@@ -158,6 +200,14 @@ public class GProducto extends HttpServlet {
 
 	}
 
+	/**
+	 * mi metodo que borra el producto del id que pasamos
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	private void borrarProducto(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Producto p = new Producto();

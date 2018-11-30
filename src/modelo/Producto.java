@@ -54,7 +54,10 @@ public class Producto {
 	public String toString() {
 		return "Producto [id=" + id + ", descripcion=" + descripcion + ", precio=" + precio + "]";
 	}
-
+/**
+ * devuelve un array list con los productos de la base de datos
+ * @return
+ */
 	public ArrayList<Producto> listarProductos() {
 		ArrayList<Producto> lista = null;
 		try {
@@ -64,7 +67,10 @@ public class Producto {
 		}
 		return lista;
 	}
-
+/**
+ * busca un producto en la base de datos
+ * @param id
+ */
 	public void buscarID(int id) {
 		Producto e = null;
 		try {
@@ -78,7 +84,9 @@ public class Producto {
 			this.precio = e.getPrecio();
 		}
 	}
-
+/**
+ * inserta un producto en la base de datos
+ */
 	public void insertar() {
 		try {
 			ProductosDAO.getInstance().insert(this);
@@ -87,7 +95,9 @@ public class Producto {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * borra un producto en la base de datos
+ */
 	public void borrar() {
 		try {
 			ProductosDAO.getInstance().delete(this);
@@ -96,7 +106,9 @@ public class Producto {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * actualiza un producto en la base de datos
+ */
 	public void actualizar() {
 		try {
 			ProductosDAO.getInstance().update(this);

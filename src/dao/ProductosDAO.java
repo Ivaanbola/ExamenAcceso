@@ -11,7 +11,7 @@ import modelo.Producto;
 import singleton.DBConnection;
 
 public class ProductosDAO {
-	
+
 	private Connection con = null;
 
 	public static ProductosDAO instance = null;
@@ -25,18 +25,29 @@ public class ProductosDAO {
 			instance = new ProductosDAO();
 		return instance;
 	}
-	
+
+	/**
+	 * metodo que inserta un producto
+	 * 
+	 * @param n
+	 * @throws SQLException
+	 */
 	public void insert(Producto n) throws SQLException {
-		PreparedStatement ps = con
-				.prepareStatement("INSERT INTO productlos (descripcion, precio) VALUES (?,?)");
+		PreparedStatement ps = con.prepareStatement("INSERT INTO productos (descripcion, precio) VALUES (?,?)");
 		ps.setString(1, n.getDescripcion());
 		ps.setDouble(2, n.getPrecio());
 		ps.executeUpdate();
 		ps.close();
 	}
-	
+
+	/**
+	 * metodo que lista un producto
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<Producto> listarTodos() throws SQLException {
-		
+
 		PreparedStatement ps = con.prepareStatement("SELECT * from productos");
 		ResultSet rs = ps.executeQuery();
 
@@ -52,7 +63,6 @@ public class ProductosDAO {
 		return result;
 	}
 
-	
 	public Producto buscarID(int id) throws SQLException {
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM productos WHERE id = ?");
 		ps.setInt(1, id);
@@ -65,12 +75,23 @@ public class ProductosDAO {
 		ps.close();
 		return result;
 	}
-	
-	
+
+	/**
+	 * metodo que borra un producto
+	 * 
+	 * @param e
+	 * @throws SQLException
+	 */
 	public void delete(Producto e) throws SQLException {
 		delete(e.getId());
 	}
 
+	/**
+	 * metodo que borra pasandole un id
+	 * 
+	 * @param id
+	 * @throws SQLException
+	 */
 	public void delete(int id) throws SQLException {
 		if (id <= 0)
 			return;
@@ -80,12 +101,17 @@ public class ProductosDAO {
 		ps.executeUpdate();
 		ps.close();
 	}
-	
+
+	/**
+	 * metodo que actualiza un producto
+	 * 
+	 * @param n
+	 * @throws SQLException
+	 */
 	public void update(Producto n) throws SQLException {
 		if (n.getId() == 0)
 			return;
-		PreparedStatement ps = con.prepareStatement(
-				"UPDATE productos SET  descripcion = ?, precio = ? WHERE id = ?");
+		PreparedStatement ps = con.prepareStatement("UPDATE productos SET  descripcion = ?, precio = ? WHERE id = ?");
 		ps.setString(1, n.getDescripcion());
 		ps.setDouble(2, n.getPrecio());
 		ps.setInt(3, n.getId());
@@ -94,5 +120,4 @@ public class ProductosDAO {
 		ps.close();
 	}
 
-	
 }

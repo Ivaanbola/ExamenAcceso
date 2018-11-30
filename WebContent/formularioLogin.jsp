@@ -8,9 +8,9 @@
 </head>
 <body>
 
-	<form action="controlador" method="post">
-		Usuario: <input type="text" name="user" /><br>
-		Password: <input type="password" name="pw"> <br>
+	<form action="GProducto" method="post">
+		Usuario: <input type="text" name="nombre" /><br>
+		Password: <input type="password" name="contrasena"> <br>
 		<input type="hidden"  name="opcion" value="4"/>
 		
 		<input type="submit" value="LOGIN" /> 

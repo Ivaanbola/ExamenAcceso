@@ -17,7 +17,7 @@
 			<th>ID</th>
 			<th>Descripcion</th>
 			<th>Precio</th>
-			<th>Eliminar</th>
+			<th>Editar</th>
 			<th>Añadir al carrito</th>
 		</tr>
 
@@ -32,16 +32,17 @@
 			<td><%=p.getId()%></td>
 			<td><%=p.getDescripcion()%></td>
 			<td><%=p.getPrecio()%></td>
-			<td><a href="GProducto?opcion=6&id=<%=p.getId()%>">
-					Editar </a></td>
-			<td><a href="GProducto?opcion=3&codigo=<%=p.getId()%>">
+			<td><a href="GProducto?opcion=6&id=<%=p.getId()%>"> Editar </a></td>
+			<td><a href="#">
 					Comprar </a></td>
+			<td><a href="GProducto?opcion=3&id=<%=p.getId()%>"> Ver
+					producto </a></td>
 		</tr>
 		<%
 			}
 			}
 		%>
-			<a href="GProducto?opcion=6&id=0">Dar de alta un nuevo Producto</a>
+		<a href="GProducto?opcion=6&id=0">Dar de alta un nuevo Producto</a>
 	</table>
 
 
